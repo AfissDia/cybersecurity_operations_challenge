@@ -1,44 +1,32 @@
 # État d'avancement
 
-Dernière mise à jour : 20/09/2026
-
 ## Terminé
 
-- [x] Création de ES-NODE-01
-- [x] Création de ES-NODE-02
-- [x] Configuration du réseau SOC interne
-- [x] Adresse IP ES-NODE-01 : 192.168.100.10
-- [x] Adresse IP ES-NODE-02 : 192.168.100.11
-- [x] Configuration SSH
+- [x] Architecture réseau initiale
+- [x] ES-NODE-01
+- [x] ES-NODE-02
+- [x] Réseau SOC-NET
+- [x] IP statiques
+- [x] Administration SSH
 - [x] Installation Elasticsearch 9.5.4
-- [x] Activation de la sécurité Elasticsearch
-- [x] Configuration HTTPS
-- [x] Création du cluster technovision-soc
-- [x] Intégration de ES-NODE-02 au cluster
-- [x] Validation du cluster Elasticsearch à deux nœuds
+- [x] HTTPS
+- [x] Authentification Elasticsearch
+- [x] Cluster technovision-soc
+- [x] Cluster Elasticsearch à deux nœuds
+- [x] Tests réseau
+- [x] Test transport 9300
+- [x] Cahier de recette initial
+- [x] Documentation de la phase Elasticsearch
 
 ## En cours
 
-- [ ] Documentation de l'architecture
-- [ ] Cahier de recette
+- [ ] Finalisation des preuves de recette
+- [ ] DAT
 
-## Prochaines étapes
+## Prochaine phase
 
-- [ ] Création de SOC-SERVER
+- [ ] Création SOC-SERVER
 - [ ] Installation Kibana
 - [ ] Installation Logstash
-- [ ] Configuration de la rétention des données
-- [ ] Intégration des premières sources de logs
-
-## Blocages rencontrés
-
-- Doublons dans elasticsearch.yml
-- Mauvaise adresse de publication du transport Elasticsearch
-- ES-NODE-02 publiait initialement 10.0.2.15 au lieu de 192.168.100.11
-
-## État actuel
-
-Le cluster Elasticsearch fonctionne avec deux nœuds :
-
-- es-node-01 : 192.168.100.10
-- es-node-02 : 192.168.100.11
+- [ ] Rétention minimale 7 jours
+- [ ] Première ingestion de logs
