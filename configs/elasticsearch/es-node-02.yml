@@ -1,0 +1,27 @@
+cluster.name: technovision-soc
+node.name: es-node-02
+
+network.host: 192.168.100.11
+http.publish_host: 192.168.100.11
+
+transport.host: 0.0.0.0
+transport.publish_host: 192.168.100.11
+
+discovery.seed_hosts:
+  - 192.168.100.10:9300
+
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+
+xpack.security.enabled: true
+xpack.security.enrollment.enabled: true
+
+xpack.security.http.ssl:
+  enabled: true
+  keystore.path: certs/http.p12
+
+xpack.security.transport.ssl:
+  enabled: true
+  verification_mode: certificate
+  keystore.path: certs/transport.p12
+  truststore.path: certs/transport.p12
