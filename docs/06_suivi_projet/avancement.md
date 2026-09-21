@@ -18,6 +18,13 @@
 - [x] Cahier de recette initial
 - [x] Documentation de la phase Elasticsearch
 
+-----
+
+- [x] Création de SOC-SERVER
+- [x] Configuration réseau SOC-SERVER
+- [x] Installation Kibana
+- [x] Connexion Kibana au cluster Elasticsearch
+- [x] Accès Web Kibana depuis Windows
 ## En cours
 
 - [ ] Finalisation des preuves de recette
@@ -25,8 +32,6 @@
 
 ## Prochaine phase
 
-- [ ] Création SOC-SERVER
-- [ ] Installation Kibana
 - [ ] Installation Logstash
 - [ ] Rétention minimale 7 jours
 - [ ] Première ingestion de logs
