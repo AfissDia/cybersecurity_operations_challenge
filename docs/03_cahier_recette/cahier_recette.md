@@ -11,6 +11,9 @@
 | REC-07 | Transport | Port TCP 9300 | Accessible | Accessible | OK | CAP-08 |
 | REC-08 | Santé cluster | `_cluster/health` | Cluster opérationnel | À consigner | À valider | CAP-07 |
 
+| REC-09 | Kibana | Vérifier le service Kibana | Service actif | Conforme | OK | CAP-10 |
+| REC-10 | Kibana | Accès Web depuis Windows | Interface Kibana accessible sur le port 5601 | Conforme | OK | CAP-11 |
+
 
 
 ## Références des preuves
@@ -23,3 +26,4 @@
 - CAP-06 : `evidence/screenshots/06_cluster_two_nodes.png`
 - CAP-07 : `evidence/screenshots/07_cluster_health.png`
 - CAP-08 : `evidence/screenshots/08_transport_9300.png`
+
