@@ -25,6 +25,15 @@
 - [x] Installation Kibana
 - [x] Connexion Kibana au cluster Elasticsearch
 - [x] Accès Web Kibana depuis Windows
+
+----
+
+- [x] Installation Logstash
+- [x] Connexion Logstash à Elasticsearch
+- [x] Création d'un pipeline de test
+- [x] Ingestion d'un premier événement
+- [x] Vérification de l'index dans Elasticsearch
+- [ ] Vérification du log dans Kibana Discover
 ## En cours
 
 - [ ] Finalisation des preuves de recette
@@ -32,6 +41,4 @@
 
 ## Prochaine phase
 
-- [ ] Installation Logstash
-- [ ] Rétention minimale 7 jours
 - [ ] Première ingestion de logs

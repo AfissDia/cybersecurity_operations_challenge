@@ -62,3 +62,21 @@ Correction :
 ```yaml
 transport.publish_host: 192.168.100.11
 http.publish_host: 192.168.100.11
+```
+## Phase 5 - Validation de la chaîne Logstash
+
+Un pipeline de test Logstash a été configuré sur SOC-SERVER.
+
+Un événement JSON a été envoyé sur le port TCP 5000.
+
+L'événement a été indexé dans Elasticsearch dans l'index :
+
+soc-test-2026.09.21
+
+Le document a ensuite été retrouvé dans Kibana Discover avec les champs :
+
+- event : Premier log SOC
+- source : soc-server
+- status : success
+
+Résultat : chaîne Logstash → Elasticsearch → Kibana validée.
