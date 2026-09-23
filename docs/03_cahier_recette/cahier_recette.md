@@ -10,10 +10,8 @@
 | REC-06 | Cluster | Élection master | 1 master | es-node-01 | OK | CAP-06 |
 | REC-07 | Transport | Port TCP 9300 | Accessible | Accessible | OK | CAP-08 |
 | REC-08 | Santé cluster | `_cluster/health` | Cluster opérationnel | À consigner | À valider | CAP-07 |
-
 | REC-09 | Kibana | Vérifier le service Kibana | Service actif | Conforme | OK | CAP-10 |
 | REC-10 | Kibana | Accès Web depuis Windows | Interface Kibana accessible sur le port 5601 | Conforme | OK | CAP-11 |
-
 | REC-11 | Logstash | Envoi d'un événement test vers Logstash | Création de l'événement dans Elasticsearch | 1 document indexé dans soc-test-* | OK | CAP-12 |
 
 ## Références des preuves

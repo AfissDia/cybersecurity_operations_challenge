@@ -1,9 +1,3 @@
-
----
-
-# 16. `points_blocants.md`
-
-```markdown
 # Points bloquants rencontrés
 
 ## PB-01 - Configuration YAML en double
@@ -50,3 +44,25 @@ Configuration explicite :
 ```yaml
 transport.publish_host: 192.168.100.11
 http.publish_host: 192.168.100.11
+
+```
+## PB-04 - Kibana ne démarre plus
+
+Symptôme :
+Kibana passe de `active (running)` à `failed` et le port 5601 n'écoute plus.
+
+Cause :
+Le filesystem racine de SOC-SERVER était plein :
+
+- volume logique `/` : 10 Go
+- utilisation : 100 %
+
+Le disque virtuel faisait déjà 20 Go, mais le volume logique LVM n'utilisait que 10 Go.
+
+Résolution :
+Extension du volume logique avec l'espace libre disponible dans `ubuntu-vg`.
+
+Résultat :
+Le port 5601 est de nouveau en écoute sur `0.0.0.0:5601`.
+
+Statut : Résolu.

@@ -19,3 +19,113 @@ Enter host password for user 'elastic':
   "active_shards_percent_as_number" : 100.0
 }
 es-node-01@es-node-01:~$
+
+
+
+
+
+
+
+
+
+
+
+À la rentrée 2026, j’intégrerai le Master 2 Cybersécurité et Informatique Légale de l’Université Grenoble Alpes. Je recherche une alternance de 12 mois afin de développer mes compétences en gouvernance, gestion des risques et protection des données. Mon parcours m’a permis de travailler sur la sécurisation des SI, l’analyse des risques, la gestion des accès et la documentation technique.
+
+
+*****************************
+
+
+Bonjour Ély,
+
+Non, je n’ai pas encore reçu ma nouvelle carte jusqu’à présent.
+
+Ma demande est toujours en cours auprès de la préfecture. Je les ai encore relancés aujourd’hui en urgence et je te transmets le nouveau document dès que je le reçois.
+
+Merci,
+Mouhamadou
+
+***********************************************************
+Bonjour Madame, Monsieur,
+
+Je me permets de vous relancer encoreconcernant ma demande de renouvellement de titre de séjour étudiant, toujours en cours d’instruction.
+
+Mon attestation de prolongation expire le 24/09/2026 et je n’ai, à ce jour, reçu ni nouvelle attestation ni décision concernant mon dossier.
+
+Mon employeur vient également de me demander un justificatif de séjour valide afin de pouvoir régulariser ma situation professionnelle.
+
+Je vous serais donc reconnaissant de bien vouloir m’indiquer l’état d’avancement de mon dossier et, si possible, de me transmettre une nouvelle attestation de prolongation d’instruction.
+
+Je reste bien entendu disponible pour fournir tout document complémentaire nécessaire.
+
+Cordialement,
+Mouhamadou Afiss DIA
+
+
+
+
+
+***************************
+
+
+Bonjour Madame, Monsieur,
+
+Je me permets de vous relancer concernant ma demande de renouvellement de titre de séjour étudiant, toujours en cours d’instruction.
+
+Mon attestation de prolongation expire le 24/09/2026 et je n’ai, à ce jour, reçu ni nouvelle attestation ni décision concernant mon dossier.
+
+Mon employeur vient également de me demander un justificatif de séjour valide afin de pouvoir justifier de la régularité de mon séjour auprès de mon employeur.
+
+Je vous serais donc reconnaissant de bien vouloir m’indiquer l’état d’avancement de mon dossier et, si possible, de me transmettre une nouvelle attestation de prolongation d’instruction.
+
+Je reste bien entendu disponible pour fournir tout document complémentaire nécessaire.
+
+Cordialement,
+Mouhamadou Afiss DIA
+
+
+Urgent – Attestation de prolongation expirant le 24/09/2026
+
+
+
+
+Bonjour Madame, Monsieur,
+
+Je me permets de vous relancer encore concernant ma demande de renouvellement de titre de séjour étudiant, toujours en cours d’instruction.
+
+Mon attestation de prolongation expire le 24/09/2026 et je n’ai, à ce jour, reçu ni nouvelle attestation ni décision concernant mon dossier.
+
+Mon employeur vient également de me demander un justificatif de séjour valide afin de mettre à jour mon dossier administratif.
+
+Je vous serais donc reconnaissant de bien vouloir m’indiquer l’état d’avancement de mon dossier et, si possible, de me transmettre une nouvelle attestation de prolongation d’instruction.
+
+Je reste bien entendu disponible pour fournir tout document complémentaire nécessaire.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo /usr/share/kibana/bin/kibana-setup --enrollment-token 'eyJ2ZXIiOiI4LjE0LjAiLCJhZHIiOlsiMTkyLjE2OC4xMDAuMTA6OTIwMCJdLCJmZ3IiOiJhYjNlYzg3MTNkMmQwZmNhZDc5MmI3ZjY2OGE2OGJiMmIzYjE3NTQxOTc2OTI4MThmMjhiMTIyODgwZTk1YmZlIiwia2V5IjoiZWdYTHphQUJGeVhvSldZd2ZSdlM6d05PUEZ4SXhhMklNZVlYdkQ3ZUtFUSJ9'
+
+
+beach, infotealer, mfa, threat, credential, exfiltration, opsec, pivot
+
+
+***********************************
+
+logstash
