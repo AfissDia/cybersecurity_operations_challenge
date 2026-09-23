@@ -1,0 +1,52 @@
+es-node-01@soc-server:~$ sudo tail -n 50 /var/log/syslog
+Sep 23 19:23:31 soc-server logstash[689]:               "kernel" => "5.15.0-191-generic",
+Sep 23 19:23:31 soc-server logstash[689]:              "version" => "22.04.5 LTS (Jammy Jellyfish)"
+Sep 23 19:23:31 soc-server logstash[689]:         },
+Sep 23 19:23:31 soc-server logstash[689]:         "containerized" => false,
+Sep 23 19:23:31 soc-server logstash[689]:                    "ip" => [
+Sep 23 19:23:31 soc-server logstash[689]:             [0] "10.0.2.15",
+Sep 23 19:23:31 soc-server logstash[689]:             [1] "fe80::a00:27ff:fed4:869a",
+Sep 23 19:23:31 soc-server logstash[689]:             [2] "192.168.100.12",
+Sep 23 19:23:31 soc-server logstash[689]:             [3] "fe80::a00:27ff:fece:1c7f"
+Sep 23 19:23:31 soc-server logstash[689]:         ],
+Sep 23 19:23:31 soc-server logstash[689]:          "architecture" => "x86_64",
+Sep 23 19:23:31 soc-server logstash[689]:                    "id" => "104449a0f9644931bcad49b531d796f3"
+Sep 23 19:23:31 soc-server logstash[689]:     },
+Sep 23 19:23:31 soc-server logstash[689]:        "message" => "Sep 23 19:23:10 soc-server logstash[689]:             [0] \"08-00-27-CE-1C-7F\",",
+Sep 23 19:23:31 soc-server logstash[689]:     "@timestamp" => 2026-09-23T19:23:15.831Z,
+Sep 23 19:23:31 soc-server logstash[689]:          "event" => {
+Sep 23 19:23:31 soc-server logstash[689]:         "original" => "Sep 23 19:23:10 soc-server logstash[689]:             [0] \"08-00-27-CE-1C-7F\",",
+Sep 23 19:23:31 soc-server logstash[689]:           "module" => "system",
+Sep 23 19:23:31 soc-server logstash[689]:          "dataset" => "system.syslog",
+Sep 23 19:23:31 soc-server logstash[689]:         "timezone" => "+00:00"
+Sep 23 19:23:31 soc-server logstash[689]:     },
+Sep 23 19:23:31 soc-server logstash[689]:          "agent" => {
+Sep 23 19:23:31 soc-server logstash[689]:                 "name" => "soc-server",
+Sep 23 19:23:31 soc-server logstash[689]:                 "type" => "filebeat",
+Sep 23 19:23:31 soc-server logstash[689]:              "version" => "9.5.4",
+Sep 23 19:23:31 soc-server logstash[689]:                   "id" => "ea20faab-75a3-4847-9cb2-b2e12410a7c5",
+Sep 23 19:23:31 soc-server logstash[689]:         "ephemeral_id" => "75da0449-0cc9-49b1-ac4d-25bba4fd9997"
+Sep 23 19:23:31 soc-server logstash[689]:     },
+Sep 23 19:23:31 soc-server logstash[689]:           "tags" => [
+Sep 23 19:23:31 soc-server logstash[689]:         [0] "beats_input_codec_plain_applied"
+Sep 23 19:23:31 soc-server logstash[689]:     ],
+Sep 23 19:23:31 soc-server logstash[689]:            "ecs" => {
+Sep 23 19:23:31 soc-server logstash[689]:         "version" => "1.12.0"
+Sep 23 19:23:31 soc-server logstash[689]:     },
+Sep 23 19:23:31 soc-server logstash[689]:       "@version" => "1",
+Sep 23 19:23:31 soc-server logstash[689]:            "log" => {
+Sep 23 19:23:31 soc-server logstash[689]:           "file" => {
+Sep 23 19:23:31 soc-server logstash[689]:             "path" => "/var/log/syslog"
+Sep 23 19:23:31 soc-server logstash[689]:         },
+Sep 23 19:23:31 soc-server logstash[689]:         "offset" => 403504
+Sep 23 19:23:31 soc-server logstash[689]:     }
+Sep 23 19:23:31 soc-server logstash[689]: }
+Sep 23 19:23:31 soc-server logstash[689]: {
+Sep 23 19:23:31 soc-server logstash[689]:        "fileset" => {
+Sep 23 19:23:31 soc-server logstash[689]:         "name" => "syslog"
+Sep 23 19:23:31 soc-server logstash[689]:     },
+Sep 23 19:23:31 soc-server logstash[689]:        "service" => {
+Sep 23 19:23:31 soc-server logstash[689]:         "type" => "system"
+Sep 23 19:23:31 soc-server logstash[689]:     },
+Sep 23 19:23:31 soc-server logstash[689]:          "input" => {
+es-node-01@soc-server:~$

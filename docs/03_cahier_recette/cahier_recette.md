@@ -13,6 +13,7 @@
 | REC-09 | Kibana | Vérifier le service Kibana | Service actif | Conforme | OK | CAP-10 |
 | REC-10 | Kibana | Accès Web depuis Windows | Interface Kibana accessible sur le port 5601 | Conforme | OK | CAP-11 |
 | REC-11 | Logstash | Envoi d'un événement test vers Logstash | Création de l'événement dans Elasticsearch | 1 document indexé dans soc-test-* | OK | CAP-12 |
+REC-12 | Filebeat | Collecte logs Linux via Filebeat | Logs Linux visibles dans Kibana Discover | Conforme | OK | CAP-13
 
 ## Références des preuves
 
