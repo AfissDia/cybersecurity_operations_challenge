@@ -59,6 +59,14 @@ au lieu de :
 
 Correction :
 
+### Problèmes kibana
+
+- Incident Kibana : arrêt du service causé par la saturation du filesystem racine.
+- Extension du volume logique LVM avec l'espace libre du groupe `ubuntu-vg`.
+- Kibana de nouveau opérationnel sur le port 5601.
+- Voir `points_blocants.md` pour le diagnostic complet.
+
+
 ```yaml
 transport.publish_host: 192.168.100.11
 http.publish_host: 192.168.100.11

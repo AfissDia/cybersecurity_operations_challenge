@@ -14,6 +14,9 @@
 | REC-10 | Kibana | Accès Web depuis Windows | Interface Kibana accessible sur le port 5601 | Conforme | OK | CAP-11 |
 | REC-11 | Logstash | Envoi d'un événement test vers Logstash | Création de l'événement dans Elasticsearch | 1 document indexé dans soc-test-* | OK | CAP-12 |
 REC-12 | Filebeat | Collecte logs Linux via Filebeat | Logs Linux visibles dans Kibana Discover | Conforme | OK | CAP-13
+REC-13 | Winlogbeat | Collecte des journaux Windows | Événements Windows visibles dans Kibana | Conforme | OK | CAP-14
+REC-15 | pfSense/Syslog | Collecte des logs réseau pfSense | Événements pfSense visibles dans Kibana | Conforme | OK | CAP-16
+REC-16 | Logstash/pfSense | Parsing et normalisation des logs pfSense | Champs structurés visibles dans Kibana | Conforme | OK | CAP-17
 
 ## Références des preuves
 
