@@ -1,0 +1,37 @@
+﻿<!--
+  TechnoVision - Regles de detection personnalisees
+  Scenario 1 : Detection et reponse aux menaces avancees (Wazuh EDR)
+  Fichier a deposer dans /var/ossec/etc/rules/local_rules.xml sur le manager
+-->
+<group name="technovision,windows,powershell,">
+
+  <rule id="100100" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">EncodedCommand</field>
+    <description>TechnoVision - Execution PowerShell obfusquee (Base64)</description>
+    <mitre>
+      <id>T1059.001</id>
+      <id>T1027</id>
+    </mitre>
+  </rule>
+
+  <rule id="100101" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">whoami|net user|net localgroup|systeminfo|net share</field>
+    <description>TechnoVision - Commande de reconnaissance systeme</description>
+    <mitre>
+      <id>T1033</id>
+      <id>T1087.001</id>
+      <id>T1082</id>
+    </mitre>
+  </rule>
+
+  <rule id="100102" level="13" frequency="4" timeframe="300">
+    <if_matched_sid>100101</if_matched_sid>
+    <description>TechnoVision - Sequence de reconnaissance : 4 commandes ou plus en 5 minutes</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+  </rule>
+
+</group>
