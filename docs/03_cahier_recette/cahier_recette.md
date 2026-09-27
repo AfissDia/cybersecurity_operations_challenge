@@ -23,6 +23,11 @@ REC-19 | Elastic Security | Détection de multiples échecs d'authentification W
 REC-20 | Elastic Security | Détection de plusieurs connexions bloquées par pfSense | Alerte générée après plusieurs événements block | Conforme | OK | CAP-21
 REC-21 | Elastic Security | Détection d'activité PowerShell suspecte | Alerte générée sur événement 4104 contenant un indicateur suspect | Conforme | OK | CAP-22
 REC-22 | Elastic Security | Détection de création d’un compte Windows | Alerte générée sur Event ID 4720 | Conforme | OK | CAP-23
+REC-23 | Elastic Security | Détection d’ajout d’un utilisateur à un groupe local privilégié | Alerte générée sur Event ID 4732 | Conforme | OK | CAP-24
+REC-24 | Elastic Security | Détection de multiples échecs SSH Linux | Alerte générée après plusieurs échecs d'authentification | Conforme | OK | CAP-25
+REC-25 | Elastic Security | Détection de création d’un nouveau service Windows | Alerte générée sur Event ID 7045 | Conforme | OK | CAP-26
+REC-26 | Elastic Security | Détection d'une connexion SSH sortante via pfSense | Alerte générée sur connexion TCP vers le port 22 | Conforme | OK | CAP-27
+REC-27 | Elastic Security | Détection d'accès à des chemins Web sensibles | Alerte générée sur requête Nginx vers chemin sensible | Conforme | OK | CAP-28
 
 ## Références des preuves
 
