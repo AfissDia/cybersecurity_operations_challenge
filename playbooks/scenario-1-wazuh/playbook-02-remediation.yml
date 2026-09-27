@@ -1,0 +1,44 @@
+﻿# Playbook 02 - Remediation automatique d'une persistance
+# Format : YAML | SOC TechnoVision | Scenario 1 (Wazuh EDR)
+
+playbook:
+  id: PB-002
+  nom: "Suppression automatique d'une persistance registre"
+  version: "1.0"
+  objectif: >
+    Supprimer automatiquement une cle de registre Run malveillante des sa
+    detection, pour neutraliser la persistance avant le prochain demarrage.
+
+  declencheur:
+    source: Wazuh
+    condition: "rule.id == 100112 (persistance furtive detectee)"
+
+  entrees:
+    - agent_id: "identifiant de l'agent concerne"
+    - cle_registre: "valeur suspecte detectee sous Run"
+
+  etapes:
+    - numero: 1
+      action: "Detection"
+      description: "Wazuh detecte la creation d'une cle Run avec -WindowStyle Hidden"
+    - numero: 2
+      action: "Confirmation"
+      description: "Verification du caractere malveillant (nom usurpe, chemin public)"
+    - numero: 3
+      action: "Suppression"
+      description: "Execution du script remediation-persistance.ps1 via Active Response"
+      technique_MITRE_contree: "T1547.001 - Registry Run Keys"
+    - numero: 4
+      action: "Verification"
+      description: "Nouveau scan FIM pour confirmer la disparition de la cle"
+    - numero: 5
+      action: "Journalisation"
+      description: "Enregistrement de l'action dans active-responses.log"
+
+  sortie:
+    - cle de persistance supprimee
+    - action tracee dans les logs Wazuh
+
+  mesure_efficacite:
+    MTTR: "temps entre la detection et la suppression de la cle"
+    taux_faux_positifs: "a mesurer sur la duree d'exploitation"

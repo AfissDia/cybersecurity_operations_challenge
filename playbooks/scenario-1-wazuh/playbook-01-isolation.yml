@@ -1,0 +1,52 @@
+﻿# Playbook 01 - Isolation d'un poste compromis
+# Format : YAML | SOC TechnoVision | Scenario 1 (Wazuh EDR)
+
+playbook:
+  id: PB-001
+  nom: "Isolation reseau d'un poste compromis"
+  version: "1.0"
+  objectif: >
+    Isoler automatiquement un poste du reseau des qu'une alerte de criticite
+    elevee est detectee, afin de stopper une exfiltration ou une propagation.
+
+  declencheur:
+    source: Wazuh
+    condition: "rule.level >= 12"
+    exemples_regles: [100112, 100120, 100121]
+
+  entrees:
+    - agent_id: "identifiant de l'agent concerne"
+    - agent_ip: "adresse IP du poste"
+    - rule_id: "regle ayant declenche l'alerte"
+
+  etapes:
+    - numero: 1
+      action: "Detection"
+      description: "Wazuh recoit une alerte de niveau >= 12 sur l'agent"
+    - numero: 2
+      action: "Qualification"
+      description: "L'analyste verifie l'alerte dans Threat Hunting (faux positif ?)"
+    - numero: 3
+      action: "Isolation reseau"
+      description: >
+        Execution du script d'isolation via Active Response : blocage des
+        connexions entrantes et sortantes du poste sauf vers le manager Wazuh
+      technique_MITRE_contree: "T1041 - Exfiltration, T1021 - Lateral Movement"
+    - numero: 4
+      action: "Notification"
+      description: "Alerte de l'equipe SOC et ouverture d'un ticket d'incident"
+    - numero: 5
+      action: "Investigation"
+      description: "Analyse forensique du poste isole (processus, persistance, IoC)"
+    - numero: 6
+      action: "Remediation"
+      description: "Suppression des persistances, puis reintegration ou reinstallation"
+
+  sortie:
+    - poste isole du reseau
+    - ticket d'incident cree
+    - equipe SOC notifiee
+
+  mesure_efficacite:
+    MTTD: "temps entre l'action malveillante et l'alerte (< 1 min observe)"
+    MTTR: "temps entre l'alerte et l'isolation effective"
