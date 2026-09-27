@@ -17,6 +17,12 @@ REC-12 | Filebeat | Collecte logs Linux via Filebeat | Logs Linux visibles dans 
 REC-13 | Winlogbeat | Collecte des journaux Windows | Événements Windows visibles dans Kibana | Conforme | OK | CAP-14
 REC-15 | pfSense/Syslog | Collecte des logs réseau pfSense | Événements pfSense visibles dans Kibana | Conforme | OK | CAP-16
 REC-16 | Logstash/pfSense | Parsing et normalisation des logs pfSense | Champs structurés visibles dans Kibana | Conforme | OK | CAP-17
+REC-17 | pfSense/Logstash | Parsing des logs firewall | IP, ports, protocole et action extraits | Conforme | OK | CAP-18
+REC-18 | Elastic Security | Détection de multiples erreurs HTTP 404 Nginx | Une alerte est générée après dépassement du seuil | Conforme | OK | CAP-19
+REC-19 | Elastic Security | Détection de multiples échecs d'authentification Windows | Alerte générée après plusieurs événements 4625 | Conforme | OK | CAP-20
+REC-20 | Elastic Security | Détection de plusieurs connexions bloquées par pfSense | Alerte générée après plusieurs événements block | Conforme | OK | CAP-21
+REC-21 | Elastic Security | Détection d'activité PowerShell suspecte | Alerte générée sur événement 4104 contenant un indicateur suspect | Conforme | OK | CAP-22
+REC-22 | Elastic Security | Détection de création d’un compte Windows | Alerte générée sur Event ID 4720 | Conforme | OK | CAP-23
 
 ## Références des preuves
 
