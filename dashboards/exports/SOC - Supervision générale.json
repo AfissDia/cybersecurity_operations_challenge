@@ -1,0 +1,78 @@
+{
+  "description": "Dashboard de supervision générale du SOC regroupant les événements Linux, Windows, Nginx et pfSense.",
+  "options": {
+    "auto_apply_filters": true,
+    "hide_panel_borders": false,
+    "hide_panel_titles": false,
+    "sync_colors": false,
+    "sync_cursor": true,
+    "sync_tooltips": false,
+    "use_margins": true
+  },
+  "tags": [],
+  "title": "SOC - Supervision générale",
+  "filters": [],
+  "esql_approximation": false,
+  "query": {
+    "expression": "",
+    "language": "kql"
+  },
+  "panels": [
+    {
+      "grid": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 15
+      },
+      "config": {
+        "ref_id": "eddf8670-549e-4ab7-b50c-e00fb68ecc76"
+      },
+      "id": "55208093-aef9-4515-836b-3d7bd087f401",
+      "type": "vis"
+    },
+    {
+      "grid": {
+        "x": 24,
+        "y": 0,
+        "w": 24,
+        "h": 15
+      },
+      "config": {
+        "ref_id": "df99c4d6-a8cb-446a-9d99-21d05b334898"
+      },
+      "id": "5de6bbf9-6863-4b05-a5b6-eb28d8f4c2ad",
+      "type": "vis"
+    },
+    {
+      "grid": {
+        "x": 0,
+        "y": 15,
+        "w": 24,
+        "h": 15
+      },
+      "config": {
+        "ref_id": "d804ad4f-5348-49af-b49d-c3f5afd9e11d"
+      },
+      "id": "af9ce556-0c3e-4139-9e28-4422e4c9c3cb",
+      "type": "vis"
+    },
+    {
+      "grid": {
+        "x": 24,
+        "y": 15,
+        "w": 24,
+        "h": 15
+      },
+      "config": {
+        "ref_id": "6850345e-6728-4c81-bafe-a0d0a39434e3"
+      },
+      "id": "0f7483bb-d872-4148-96f0-4b2a258548eb",
+      "type": "vis"
+    }
+  ],
+  "pinned_panels": [],
+  "access_control": {
+    "access_mode": "default"
+  }
+}

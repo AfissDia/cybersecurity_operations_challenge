@@ -28,6 +28,8 @@ REC-24 | Elastic Security | Détection de multiples échecs SSH Linux | Alerte g
 REC-25 | Elastic Security | Détection de création d’un nouveau service Windows | Alerte générée sur Event ID 7045 | Conforme | OK | CAP-26
 REC-26 | Elastic Security | Détection d'une connexion SSH sortante via pfSense | Alerte générée sur connexion TCP vers le port 22 | Conforme | OK | CAP-27
 REC-27 | Elastic Security | Détection d'accès à des chemins Web sensibles | Alerte générée sur requête Nginx vers chemin sensible | Conforme | OK | CAP-28
+REC-28 | Elasticsearch ILM | Vérification de la politique de rétention 7 jours | L'index linux-logs utilise la policy soc-retention-7d | Conforme | OK | CAP-29
+REC-29 | Détection | Vérification Sigma et MITRE ATT&CK | Deux règles Sigma créées et 10 règles mappées MITRE | Conforme | OK | CAP-30
 
 ## Références des preuves
 

@@ -1,0 +1,24 @@
+title: Windows New Local User Created
+id: 22222222-2222-2222-2222-222222222222
+status: experimental
+description: Detects creation of a new local Windows user account.
+author: Mouhamadou Afiss DIA
+date: 2026-09-27
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4720
+  condition: selection
+
+falsepositives:
+  - Legitimate user provisioning by administrators
+
+level: medium
+
+tags:
+  - attack.persistence
+  - attack.t1136.001

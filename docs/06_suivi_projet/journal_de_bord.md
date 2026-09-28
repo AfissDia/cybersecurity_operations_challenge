@@ -1,90 +1,187 @@
 # Journal de bord
 
-## Phase 1 - Préparation de l'infrastructure
+## Mise en place de l'architecture
 
-Création des machines ES-NODE-01 et ES-NODE-02 sous Ubuntu Server.
+Création du réseau interne VirtualBox `SOC-NET` :
 
-Mise en place de deux interfaces réseau :
-- NAT pour Internet
-- SOC-NET pour le réseau interne
-
-Adresses configurées :
+- pfSense : 192.168.100.1
 - ES-NODE-01 : 192.168.100.10
 - ES-NODE-02 : 192.168.100.11
+- SOC-SERVER : 192.168.100.12
 
-## Phase 2 - Administration distante
+Les VM utilisent également une interface NAT pour l'accès Internet.
 
-Installation et activation de SSH.
+## Cluster Elasticsearch
 
-Accès depuis Windows PowerShell via redirection de ports VirtualBox.
+Installation et configuration d'Elasticsearch 9.5.4.
 
-## Phase 3 - Elasticsearch
+Le second nœud ne rejoignait initialement pas correctement le cluster car
+il publiait son adresse NAT.
 
-Installation d'Elasticsearch 9.5.4 sur les deux serveurs.
+Configuration de `transport.publish_host` et `http.publish_host` sur
+l'adresse SOC.
 
-Activation de la sécurité Elasticsearch et du HTTPS.
+Le cluster à deux nœuds a ensuite fonctionné correctement.
 
-Création du cluster :
+## Kibana et Logstash
 
-technovision-soc
+Installation de Kibana et Logstash sur SOC-SERVER.
 
-## Phase 4 - Problèmes rencontrés
+Configuration de Kibana avec Elasticsearch sécurisé.
 
-### Doublon YAML
+Ajout de la clé `xpack.encryptedSavedObjects.encryptionKey` pour permettre
+le fonctionnement d'Elastic Security.
 
-Une configuration `cluster.initial_master_nodes` apparaissait deux fois.
+## Collecte Linux
 
-Impact :
-Elasticsearch refusait de démarrer.
+Installation et configuration de Filebeat.
 
-Correction :
-suppression de la configuration dupliquée.
+Activation du module système.
 
-### Bootstrap du cluster
+Validation des logs Linux dans Kibana.
 
-Le cluster ne parvenait initialement pas à élire de master.
+## Incident disque
 
-Correction :
-bootstrap initial de ES-NODE-01.
+La partition racine de SOC-SERVER a atteint 100 % d'utilisation.
 
-### ES-NODE-02 non intégré
+Extension du volume logique LVM.
 
-ES-NODE-02 publiait :
+Une seconde saturation a été provoquée par une boucle de logs entre
+Filebeat, Logstash et syslog.
 
-10.0.2.15:9300
+Suppression de la sortie `stdout { codec => rubydebug }`.
 
-au lieu de :
+Le fonctionnement est ensuite redevenu normal.
 
-192.168.100.11:9300
+## Collecte Windows
 
-Correction :
+Installation de Winlogbeat sur Windows.
 
-### Problèmes kibana
+Collecte de :
 
-- Incident Kibana : arrêt du service causé par la saturation du filesystem racine.
-- Extension du volume logique LVM avec l'espace libre du groupe `ubuntu-vg`.
-- Kibana de nouveau opérationnel sur le port 5601.
-- Voir `points_blocants.md` pour le diagnostic complet.
+- Security
+- System
+- Application
+- Windows PowerShell
+- PowerShell Operational
 
+Configuration du forwarding NAT vers Logstash sur le port 5044.
 
-```yaml
-transport.publish_host: 192.168.100.11
-http.publish_host: 192.168.100.11
-```
-## Phase 5 - Validation de la chaîne Logstash
+Les événements Windows ont été séparés des événements Linux avec une
+condition basée sur `[agent][type]`.
 
-Un pipeline de test Logstash a été configuré sur SOC-SERVER.
+## Collecte Nginx
 
-Un événement JSON a été envoyé sur le port TCP 5000.
+Installation de Nginx sur SOC-SERVER.
 
-L'événement a été indexé dans Elasticsearch dans l'index :
+Activation du module Nginx dans Filebeat.
 
-soc-test-2026.09.21
+Validation des accès Web, erreurs 404 et chemins sensibles dans Kibana.
 
-Le document a ensuite été retrouvé dans Kibana Discover avec les champs :
+## Collecte pfSense
 
-- event : Premier log SOC
-- source : soc-server
-- status : success
+Installation et configuration de pfSense.
 
-Résultat : chaîne Logstash → Elasticsearch → Kibana validée.
+LAN :
+
+`192.168.100.1/24`
+
+Activation du Syslog distant vers :
+
+`192.168.100.12:5514/UDP`
+
+Création d'une pipeline Logstash dédiée.
+
+Parsing des événements `filterlog` avec extraction des IP, ports, action,
+protocole, interface et direction réseau.
+
+## Elastic Security
+
+Création progressive de 10 règles de détection.
+
+Tests réalisés sur :
+
+- erreurs HTTP répétées ;
+- échecs de connexion Windows ;
+- activité PowerShell ;
+- création de compte ;
+- ajout au groupe Administrateurs ;
+- création de service ;
+- échecs SSH Linux ;
+- événements pfSense ;
+- accès à des chemins Web sensibles.
+
+Les alertes ont été validées dans Elastic Security.
+
+## Rétention
+
+Création de la politique ILM :
+
+`soc-retention-7d`
+
+Application aux index Linux, Windows et réseau.
+
+Vérification réussie dans les settings des index.
+
+## Sigma et MITRE ATT&CK
+
+Création de deux règles Sigma :
+
+- PowerShell suspect ;
+- création de compte Windows.
+
+Mapping des principales règles Elastic vers les techniques MITRE ATT&CK.
+
+## Corrélation multi-source
+
+Deux scénarios ont été analysés :
+
+### Incident 1
+
+Nginx + pfSense :
+
+- chemins Web sensibles ;
+- erreurs HTTP ;
+- activité réseau vers SSH ;
+- blocage par le pare-feu.
+
+### Incident 2
+
+Linux + pfSense :
+
+- échecs SSH Linux ;
+- trafic TCP vers le port 22 ;
+- blocage réseau.
+
+Une Timeline Elastic a été utilisée pour rapprocher les événements.
+
+## Dashboard SOC
+
+Création du dashboard :
+
+`SOC - Supervision générale`
+
+Visualisations principales :
+
+- événements Linux dans le temps ;
+- Event IDs Windows ;
+- actions réseau pfSense ;
+- activité Nginx.
+
+Le dashboard a été exporté au format NDJSON.
+
+## État final
+
+Le scénario 2 est largement opérationnel et démontrable.
+
+Les principales fonctions suivantes sont validées :
+
+- centralisation multi-source ;
+- normalisation ;
+- stockage ;
+- visualisation ;
+- détection ;
+- corrélation ;
+- investigation ;
+- rétention ;
+- documentation.

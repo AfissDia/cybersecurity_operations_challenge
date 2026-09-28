@@ -1,0 +1,28 @@
+title: Suspicious PowerShell Activity
+id: 11111111-1111-1111-1111-111111111111
+status: experimental
+description: Detects suspicious PowerShell commands commonly associated with malicious activity.
+author: Mouhamadou Afiss DIA
+date: 2026-09-27
+
+logsource:
+  product: windows
+  category: ps_script
+
+detection:
+  selection:
+    ScriptBlockText|contains:
+      - 'Invoke-WebRequest'
+      - 'DownloadString'
+      - 'EncodedCommand'
+      - 'IEX'
+  condition: selection
+
+falsepositives:
+  - Legitimate administrative PowerShell scripts
+
+level: high
+
+tags:
+  - attack.execution
+  - attack.t1059.001
